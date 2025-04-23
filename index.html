@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aplikasi Pemesanan Tiket Kereta</title>
+    <link rel="icon" href="assets/train-icon.png" type="image/png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/de8de52639.js" crossorigin="anonymous"></script>
+    <style>
+      body {
+        scroll-behavior: smooth;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, #f8f9fa, #e3f2fd);
+      }
+      .navbar {
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        transition: background 0.3s;
+      }
+      .navbar-brand img {
+        height: 50px;
+        transition: transform 0.3s;
+      }
+      .navbar-brand img:hover {
+        transform: scale(1.1);
+      }
+      .nav-link {
+        font-weight: 500;
+        margin-right: 15px;
+        transition: color 0.3s;
+      }
+      .nav-link:hover {
+        color: #007bff;
+      }
+
+      .hero-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(to right, #001f3f, rgba(0, 123, 255, 0.7)),
+          url("assets/train-bg.jpg") no-repeat center center/cover;
+        color: #fff;
+        position: relative;
+      }
+      .hero-section h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+      }
+      .hero-section p {
+        font-size: 1.2rem;
+        max-width: 550px;
+      }
+      .btn-animate {
+        transition: all 0.3s ease-in-out;
+      }
+      .btn-animate:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+      }
+      .about-section {
+        background: #ffffff;
+        padding: 80px 0;
+      }
+      .about-section .icon-box {
+        padding: 30px;
+        background: #f8f9fa;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s, background 0.3s;
+      }
+      .about-section .icon-box:hover {
+        background: #e3f2fd;
+        transform: translateY(-5px);
+      }
+      .about-section i {
+        color: #0d6efd;
+        font-size: 3rem;
+        margin-bottom: 15px;
+        transition: transform 0.3s;
+      }
+      .footer {
+        background: #212529;
+        color: #ccc;
+        padding-top: 40px;
+      }
+      .footer a {
+        color: #ccc;
+        transition: 0.3s;
+      }
+      .footer a:hover {
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="assets/logokereta.png" alt="Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">Tentang</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#footer">Kontak</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-outline-danger ms-3 btn-sm" href="logout.php">
+                <i class="fas fa-sign-out-alt"></i> Logout
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-primary ms-2 btn-sm btn-animate" href="dashboard_user.php">
+                <i class="fas fa-ticket-alt me-1"></i> Pesan Tiket
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section text-white text-center text-md-start">
+      <div class="container hero-content" data-aos="fade-up">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <h1 class="mb-4">Pesan Tiket <span class="text-warning">Kereta</span> Mudah & Cepat</h1>
+            <p class="mb-4">Aplikasi terbaik untuk memesan tiket kereta antar kota di seluruh Indonesia.</p>
+            <a href="dashboard_user.php" class="btn btn-warning btn-lg btn-animate">
+              <i class="fas fa-train me-2"></i> Mulai Pesan
+            </a>
+          </div>
+          <div class="col-md-6 text-center">
+            <img src="assets/logokereta.png" class="img-fluid mt-4" alt="Kereta" data-aos="zoom-in" data-aos-delay="300" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section text-center">
+      <div class="container">
+        <h2 class="mb-5 text-primary" data-aos="fade-down">Tentang Aplikasi</h2>
+        <div class="row justify-content-center g-4">
+          <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon-box">
+              <i class="fas fa-train"></i>
+              <h5 class="mt-3">Pemesanan Mudah</h5>
+              <p class="text-muted small">Tinggal klik, tiket langsung dipesan.</p>
+            </div>
+          </div>
+          <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon-box">
+              <i class="fas fa-clock"></i>
+              <h5 class="mt-3">Jadwal Real-Time</h5>
+              <p class="text-muted small">Informasi keberangkatan selalu update.</p>
+            </div>
+          </div>
+          <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon-box">
+              <i class="fas fa-credit-card"></i>
+              <h5 class="mt-3">Pembayaran Aman</h5>
+              <p class="text-muted small">Transaksi digital yang cepat dan aman.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer pt-5 pb-3">
+      <div class="container">
+        <div class="row text-center text-md-start align-items-center">
+          <div class="col-md-6 mb-3">
+            <img src="assets/logokereta.png" width="70px" alt="Logo" />
+            <p class="mt-2 mb-0">Jl. Rel Kereta No. 25, Bogor City, Indonesia</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <a href="#" class="me-3 fs-5"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="me-3 fs-5"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="fs-5"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <hr class="border-light" />
+        <p class="text-center mb-0">&copy; 2025 Aplikasi Tiket Kereta – All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        once: true,
+        duration: 1000,
+        easing: "ease-in-out",
+      });
+    </script>
+  </body>
+</html>
